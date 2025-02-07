@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية- نور أبو معيلق</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2A3950;
+            --secondary: #3A4D6B;
+            --accent: #FF7F50;
+            --light: #f8f9fa;
+            --text: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ----- Navigation ----- */
+        .nav-container {
+            background: rgba(42, 57, 80, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ----- Hero Section ----- */
+        .hero-section {
+            padding: 160px 2rem 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* ----- Sections ----- */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* ----- Activities ----- */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .activity-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .activity-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .activity-card:hover .activity-img img {
+            transform: scale(1.1);
+        }
+
+        .activity-content {
+            padding: 1.5rem;
+        }
+
+        /* ----- Contact Form ----- */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            margin: 4rem auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,127,80,0.3);
+        }
+
+        /* ----- Responsive Design ----- */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .profile-card {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="#" class="logo">نور أبو معيلق</a>
+            <ul class="nav-links">
+                <li><a href="#about">من أنا</a></li>
+                <li><a href="#activities">نشاطاتي</a></li>
+                <li><a href="#recommendations">التوصيات</a></li>
+                <li><a href="#contact">التواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section" id="about">
+        <div class="hero-content">
+            <div class="profile-card">
+                <img src="pimg.jpeg" alt="الصورة الشخصية" loading="lazy">
+            </div>
+            <div class="hero-text">
+                <h1>طالبة في المرحلة الثانوية من فلسطين</h1>
+               <p>أنا نور أبو معيلق، طالبة في المرحلة الثانوية من فلسطين. أحب التصميم والبرمجة، وأطمح إلى دراسة التصميم الداخلي في المستقبل. أسعى لاستخدام مهاراتي في دمج التراث الثقافي مع التصاميم الحديثة
+               </p>
+               <a href="Nour_Abu_Maileq_CV.pdf" download>
+                <button class="submit-btn" style="cursor: pointer;">
+                    تحميل السيرة الذاتية
+                </button>
+            </a>
+            
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="activities">
+        <h2 class="section-title">نشاطاتي</h2>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-img">
+                    <img src="3.jpeg" alt="النشاط 1" loading="lazy">
+                </div>
+                <div class="activity-content">
+                    <h3>بداية الاحتفاء</h3>
+                    <p>شاركتُ كطالبة (نور) في معرض مدرستنا "رواد الإبداع"، بحضور مدير التربية والتعليم الأستاذ هشام الحاج، ومديرة المدرسة عائشة يونس، إلى جانب ممثلي أولياء الأمور والتربويين. كان الحدث فرصةً لعرض إبداعاتنا العلمية بتشجيعٍ من داعمينا.
+
+                    </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-img">
+                    <img src="5.jpeg" alt="النشاط 1" loading="lazy">
+                </div>
+                <div class="activity-content">
+                    <h3>كلمة مُلهِمة</h3>
+                    <p>أشاد مدير التربية والتعليم بمدرستنا كـ"صرح علمي"، وخصَّ بالشكر معلمات نادي العلوم لجهودهن في تحويل أفكارنا إلى مشاريع ملموسة. كلماته زرعتْ فينا ثقةً بأن الإبداع يبدأ بخطوة</p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-img">
+                    <img src="4.jpeg" alt="النشاط 1" loading="lazy">
+                </div>
+                <div class="activity-content">
+                    <h3>تجربتي الشخصية</h3>
+                    <p>قدَّمتُ مع زميلاتي مشروعًا علميًا تحت إشراف معلمات متميزات. تعلمتُ كيفية شرح الأفكار بثقة وتحويل التحديات إلى نجاح. التشجيع الذي تلقيته كان وقودًا لإبهار الحضور
+                    </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-img">
+                    <img src="6.jpeg" alt="النشاط 1" loading="lazy">
+                </div>
+                <div class="activity-content">
+                    <h3>حماس المشاركة</h3>
+                    <p>شاركتُ في المخيم المهني الصيفي ٢٠٢٢ الذي استضافته مدرستنا بحماسٍ كبير، خاصةً بعد زيارة وفد الوزارة ووكالة GIZ الألمانية، حيث أشادوا بإبداعاتنا في أقسام المخيم. كان انطباع زملائي المشاركات عن تجربة التعليم المهني إيجابياً، مما دفعني للانضمام إلى قسم تطوير الويب لاكتشاف عالم البرمجة!
+                    </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-img">
+                    <img src="7.jpeg" alt="النشاط 1" loading="lazy">
+                </div>
+                <div class="activity-content">
+                    <h3>إنجاز تعليمي</h3>
+                    <p>تعلَّمتُ في قسم الويب أساسيات تصميم المواقع عبر لغات HTML، CSS، JavaScript، وبمساعدة مدربين متميزين، نجحتُ في بناء موقعي الشخصي الأول</p>
+               <p>
+                كان التحدي الأكبر هو دمج الألوان والحركات في الموقع، لكنني حوَّلت الأفكار إلى واقعٍ تفاعلي يعرض موهبتي في الكتابة بشكلٍ احترافي.
+               </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-img">
+                    <img src="8.jpeg" alt="النشاط 1" loading="lazy">
+                </div>
+                <div class="activity-content">
+                    <h3>فخر الإنجاز</h3>
+                    <p>اليوم، أشعر بفخرٍ كبير لأنني أستطيع تصميم صفحات ويب بسيطة بمفردي، وأقدّر هذه التجربة التي جعلتني طالبةً فعالة ونشيطة، قادرة على تطوير مهاراتي في مجالاتٍ مختلفة. شكراً لقسم الويب وللمشرفين الذين جعلوا هذه التجربة بوابةً لتطوير ذاتي وإبراز إمكانياتي. 
+                    </p>
+                </div>
+            </div>
+            <!-- أضف المزيد من البطاقات هنا -->
+        </div>
+    </section>
+
+    <section class="section" id="recommendations">
+        <h2 class="section-title">خطابات التوصية</h2>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-content">
+                    <h3>خطاب توصية</h3>
+                    <p>توصية من الأستاذ شاهر النتين</p>
+                    <br>
+                    <a href="shaher-warqe.pdf" class="submit-btn" download>تحميل الخطاب</a>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-content">
+                    <h3>خطاب توصية</h3>
+                    <p>توصية من المهندسة جمالات حمادة</p>
+                    <br>
+                    <a href="Jamalat-Hammada.odt" class="submit-btn" download>تحميل الخطاب</a>
+                </div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-content">
+                    <h3>خطاب النية</h3>
+                    <p>"خطاب النية الخاص بالطالب"</p>
+                    <br>
+                    <a href="ketab-alneaia.odt" class="submit-btn" download>تحميل الخطاب</a>
+                </div>
+            </div>
+            <!-- أضف المزيد من التوصيات هنا -->
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" style="color: white">تواصل معي</h2>
+        <form class="contact-form" onsubmit="sendEmail(event)">
+            <div class="form-group">
+                <input type="text" class="form-input" id="name" placeholder="الاسم" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-input" id="email" placeholder="البريد الإلكتروني" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-input" id="message" rows="5" placeholder="رسالتك" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+        </form>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav-container');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        function sendEmail(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    const subject = `رسالة من ${name}`;
+    const body = `مرحبًا،\n\n${message}\n\nمع التحية،\n${name}`;
+    
+    // إنشاء رابط Gmail مع المعلمات المطلوبة
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=noor.mq.006@gmail.com.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // فتح الرابط في نافذة جديدة
+    window.open(gmailUrl, '_blank');
+}
+    </script>
+</body>
+</html>
